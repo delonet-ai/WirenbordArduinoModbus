@@ -1,17 +1,18 @@
 {
-  "title": "Arduino 10 Servos",
+  "title": "Arduino 10 Servos + Fireplace",
   "device_type": "arduino_modbus",
   "group": "g-diy-1",
   "device": {
     "name": "Arduino",
     "id": "arduino_modbus_slave",
     "min_read_registers": 1,
-    "max_read_registers": 10,
+    "max_read_registers": 12,
     "response_timeout_ms": 200,
     "frame_timeout_ms": 100,
     "device_max_fail_cycles": 5,
     "guard_interval_us": 500,
     "groups": [
+      { "title": "Общее",     "id": "general" },
       { "title": "Комната 1", "id": "room1" },
       { "title": "Комната 2", "id": "room2" },
       { "title": "Комната 3", "id": "room3" },
@@ -20,20 +21,22 @@
     ],
     "parameters": {},
     "channels": [
-      { "name": "Комната 1 Приток",    "type": "range", "reg_type": "holding", "address": 5, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room1", "order": 1 },
-      { "name": "Комната 1 Вытяжка",   "type": "range", "reg_type": "holding", "address": 0, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room1", "order": 2 },
+      { "name": "Fireplace", "type": "switch", "reg_type": "holding", "address": 10, "format": "u16", "readonly": false, "group": "general", "order": 0, "on_value": 1, "off_value": 0 },
 
-      { "name": "Комната 2 Приток",    "type": "range", "reg_type": "holding", "address": 6, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room2", "order": 3 },
-      { "name": "Комната 2 Вытяжка",   "type": "range", "reg_type": "holding", "address": 1, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room2", "order": 4 },
+      { "name": "Комната 1 Приток",  "type": "range", "reg_type": "holding", "address": 5, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room1", "order": 1 },
+      { "name": "Комната 1 Вытяжка", "type": "range", "reg_type": "holding", "address": 0, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room1", "order": 2 },
 
-      { "name": "Комната 3 Приток",    "type": "range", "reg_type": "holding", "address": 7, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room3", "order": 5 },
-      { "name": "Комната 3 Вытяжка",   "type": "range", "reg_type": "holding", "address": 2, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room3", "order": 6 },
+      { "name": "Комната 2 Приток",  "type": "range", "reg_type": "holding", "address": 6, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room2", "order": 3 },
+      { "name": "Комната 2 Вытяжка", "type": "range", "reg_type": "holding", "address": 1, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room2", "order": 4 },
 
-      { "name": "Комната 4 Приток",    "type": "range", "reg_type": "holding", "address": 8, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room4", "order": 7 },
-      { "name": "Комната 4 Вытяжка",   "type": "range", "reg_type": "holding", "address": 3, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room4", "order": 8 },
+      { "name": "Комната 3 Приток",  "type": "range", "reg_type": "holding", "address": 7, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room3", "order": 5 },
+      { "name": "Комната 3 Вытяжка", "type": "range", "reg_type": "holding", "address": 2, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room3", "order": 6 },
 
-      { "name": "Комната 5 Приток",    "type": "range", "reg_type": "holding", "address": 9, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room5", "order": 9 },
-      { "name": "Комната 5 Вытяжка",   "type": "range", "reg_type": "holding", "address": 4, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room5", "order": 10 }
+      { "name": "Комната 4 Приток",  "type": "range", "reg_type": "holding", "address": 8, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room4", "order": 7 },
+      { "name": "Комната 4 Вытяжка", "type": "range", "reg_type": "holding", "address": 3, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room4", "order": 8 },
+
+      { "name": "Комната 5 Приток",  "type": "range", "reg_type": "holding", "address": 9, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room5", "order": 9 },
+      { "name": "Комната 5 Вытяжка", "type": "range", "reg_type": "holding", "address": 4, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room5", "order": 10 }
     ]
   },
   "translations": {}
