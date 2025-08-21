@@ -1,173 +1,40 @@
 {
-    "title": "arduino_title",
-    "device_type": "arduino_modbus",
-    "group": "g-diy",
-    "device": {
-        "name": "Arduino",
-        "id": "arduino_modbus_slave",
-        "min_read_registers": 2,
-        "max_read_registers": 10,
-        "response_timeout_ms": 200,
-        "frame_timeout_ms": 100,
-        "device_max_fail_cycles": 5,
-        "guard_interval_us": 500,
-        "groups": [
-            {
-                "title": "General",
-                "id": "general"
-            },
-            {
-                "title": "HW Info",
-                "id": "hw_info"
-            },
-            {
-                "title": "Debug",
-                "id": "debug"
-            }
-        ],
+  "title": "Arduino 10 Servos",
+  "device_type": "arduino_modbus",
+  "group": "g-diy-1",
+  "device": {
+    "name": "Arduino",
+    "id": "arduino_modbus_slave",
+    "min_read_registers": 1,
+    "max_read_registers": 10,
+    "response_timeout_ms": 200,
+    "frame_timeout_ms": 100,
+    "device_max_fail_cycles": 5,
+    "guard_interval_us": 500,
+    "groups": [
+      { "title": "Комната 1", "id": "room1" },
+      { "title": "Комната 2", "id": "room2" },
+      { "title": "Комната 3", "id": "room3" },
+      { "title": "Комната 4", "id": "room4" },
+      { "title": "Комната 5", "id": "room5" }
+    ],
+    "parameters": {},
+    "channels": [
+      { "name": "Комната 1 Приток",    "type": "range", "reg_type": "holding", "address": 5, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room1", "order": 1 },
+      { "name": "Комната 1 Вытяжка",   "type": "range", "reg_type": "holding", "address": 0, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room1", "order": 2 },
 
-        "parameters": {
-            "baud_rate": {
-                "title": "Baud rate",
-                "description": "baud_rate_description",
-                "address": 110,
-                "reg_type": "holding",
-                "enum": [96, 192, 384, 576, 1152],
-                "default": 96,
-                "enum_titles": [
-                    "9600",
-                    "19200",
-                    "38400",
-                    "57600",
-                    "115200"
-                ],
-                "group": "general",
-                "order": 1
-            },
-            "disable_indication": {
-                "title": "Status LED",
-                "address": 130,
-                "reg_type": "holding",
-                "enum": [0, 1],
-                "enum_titles": ["Enabled", "Disabled"],
-                "default": 0,
-                "group": "general",
-                "order": 3
-            }
-        },
+      { "name": "Комната 2 Приток",    "type": "range", "reg_type": "holding", "address": 6, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room2", "order": 3 },
+      { "name": "Комната 2 Вытяжка",   "type": "range", "reg_type": "holding", "address": 1, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room2", "order": 4 },
 
-        "channels": [
-            {
-                "name": "testreg",
-                "reg_type": "holding",
-                "address": 200,
-                "scale": 1,
-                "max": 255,
-                "type": "value",
-                "format": "u16",
-                "group": "general"
-            },
+      { "name": "Комната 3 Приток",    "type": "range", "reg_type": "holding", "address": 7, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room3", "order": 5 },
+      { "name": "Комната 3 Вытяжка",   "type": "range", "reg_type": "holding", "address": 2, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room3", "order": 6 },
 
-            {
-                "name": "testreg0",
-                "reg_type": "holding",
-                "address": "200:0:1",
-                "scale": 1,
-                "max": 255,
-                "type": "value",
-                "format": "u16",
-                "group": "general"
-            },            
+      { "name": "Комната 4 Приток",    "type": "range", "reg_type": "holding", "address": 8, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room4", "order": 7 },
+      { "name": "Комната 4 Вытяжка",   "type": "range", "reg_type": "holding", "address": 3, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room4", "order": 8 },
 
-            {
-                "name": "testreg1",
-                "reg_type": "holding",
-                "address": "200:1:1",
-                "scale": 1,
-                "max": 255,
-                "type": "value",
-                "format": "u16",
-                "group": "general"
-            },
-            {
-                "name": "testreg2",
-                "reg_type": "holding",
-                "address": "200:2:1",
-                "scale": 1,
-                "max": 255,
-                "type": "value",
-                "format": "u16",
-                "group": "general"
-            },
-            {
-                "name": "Out0",
-                "reg_type": "coil",
-                "address": 0,
-                "type": "switch",
-                "group": "general"
-            },
-            {
-                "name": "Out1",
-                "reg_type": "coil",
-                "address": 1,
-                "type": "switch",
-                "group": "general"
-            },
-            {
-                "name": "Out2",
-                "reg_type": "coil",
-                "address": 2,
-                "type": "switch",
-                "group": "general"
-            },
-            {
-                "name": "Out3",
-                "reg_type": "coil",
-                "address": 3,
-                "type": "switch",
-                "group": "general"
-            },
-            {
-                "name": "Out4",
-                "reg_type": "coil",
-                "address": 4,
-                "type": "switch",
-                "group": "general"
-            },
-            {
-                "name": "Out5",
-                "reg_type": "coil",
-                "address": 5,
-                "type": "switch",
-                "group": "general"
-            },
-
-            {
-                "name": "Supply Voltage",
-                "reg_type": "holding",
-                "address": 8,
-                "scale": 0.1,
-                "type": "voltage",
-                "readonly": true,
-                "enabled": false,
-                "group": "debug"
-            }
-        ],
-        "translations": {
-            "en": {
-                "arduino_title": "Arduino DIY modbus slave",
-                "Current": "Load current"
-        },
-            "ru": {
-                "General": "РћР±С‰РµРµ",
-                "HW Info": "Р”Р°РЅРЅС‹Рµ РјРѕРґСѓР»СЏ",
-                "Debug": "Р”РёР°РіРЅРѕСЃС‚РёРєР°",
-                "no": "РЅРµС‚",
-                "yes": "РґР°",
-                "Disabled": "РћС‚РєР»СЋС‡РµРЅ",
-                "testreg": "РўРµСЃС‚РѕРІС‹Р№",
-                "Supply Voltage": "Напряжение питания",
-            }
-        }
-    }
+      { "name": "Комната 5 Приток",    "type": "range", "reg_type": "holding", "address": 9, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room5", "order": 9 },
+      { "name": "Комната 5 Вытяжка",   "type": "range", "reg_type": "holding", "address": 4, "format": "s16", "readonly": false, "min": 0, "max": 100, "units": "%", "scale": 0.0384615385, "offset": 3.8461538462, "group": "room5", "order": 10 }
+    ]
+  },
+  "translations": {}
 }
